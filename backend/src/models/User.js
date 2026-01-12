@@ -7,6 +7,13 @@ const User = {
       [email]
     );
     return rows[0];     //devuelve el primer usuario encontrado
+  },
+  create: async ({ email, password }) => {
+    const [result] = await db.query(  //Aca estamos usando la conexión a la base de datos para crear un nuevo usuario
+      "INSERT INTO users (email, password) VALUES (?, ?)",
+      [email, password]
+    );
+    return { id: result.insertId, email, password };  //devuelve el nuevo usuario creado
   }
 };
 
