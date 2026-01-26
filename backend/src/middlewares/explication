@@ -1,0 +1,18 @@
+Un middleware es una función que se ejecuta antes de llegar al controller.
+
+Request → middleware → controller → response
+
+-------------------------------------------------------------------------
+El archivo auth.js es un middleware de autenticación que:
+
+Lee el token JWT enviado por el cliente
+
+Verifica que el token sea válido y no esté vencido
+
+Extrae los datos del usuario del token
+
+Adjunta esos datos a req.user
+
+Permite o bloquea el acceso a rutas protegidas
+------------------------------------------------------------------------
+

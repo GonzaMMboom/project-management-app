@@ -1,3 +1,6 @@
+//Services: aca se encargan de definir las funciones que se encargan de la lógica de la aplicación.
+
+
 //Registro
 
 // verificar si el usuario existe
@@ -20,7 +23,10 @@ const jwt = require("jsonwebtoken");
 
 //2- Luego vamos a crear el servicio de autenticación //authService es un objeto que contiene las funciones de registro y login
 const authService = {
-    register: async ({ email, password }) => {
+    register: async ({ email, password } = {}) => {
+      if (!email || !password) {
+        throw new Error("Email y contraseña son requeridos");
+      }
       const existingUser = await User.findByEmail(email);       //Aca estamos usando el modelo User para buscar el usuario por email
       if (existingUser) {
         throw new Error("El usuario ya existe");
@@ -34,7 +40,10 @@ const authService = {
       };
     },
   
-    login: async ({ email, password }) => {
+    login: async ({ email, password } = {}) => {
+      if (!email || !password) {
+        throw new Error("Email y contraseña son requeridos");
+      }
       const user = await User.findByEmail(email);
       if(!user) {
         throw new Error("Usuario no encontrado");

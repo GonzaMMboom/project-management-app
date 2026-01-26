@@ -1,0 +1,38 @@
+¿Por qué existen los controllers?
+
+Porque:
+
+el frontend habla HTTP
+
+tu lógica interna NO
+
+Entonces alguien tiene que:
+
+leer requests
+
+llamar a la lógica correcta
+
+devolver respuestas HTTP
+
+👉 Ese alguien es el controller.
+
+🔄 Qué entra y qué sale de un controller
+📥 Entrada (siempre HTTP)
+
+req.body
+
+req.params
+
+req.query
+
+req.headers
+
+📤 Salida (siempre HTTP)
+
+res.status(...)
+
+res.json(...)
+
+res.send(...)
+
+📌 Si no es HTTP, no va en el controller

@@ -1,3 +1,6 @@
+//Aca vamos a crear el modelo de usuario, es decir, el objeto que se encargara de manejar la base de datos
+
+
 const db = require("../config/db");
 
 const User = {
